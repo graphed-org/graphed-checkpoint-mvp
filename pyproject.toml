@@ -1,0 +1,77 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "graphed-checkpoint"
+version = "0.0.1"
+description = "graphed M8: content-addressed checkpoint Store, deterministic resume, error harvesting"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "graphed-org" }]
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+# graphed-core: the DurablePlan + content-addressed task_id (from git). cloudpickle: resolve opaque
+# OpSpecs at execution time (the only non-IR-expressible callables a plan can carry).
+dependencies = ["graphed-core", "cloudpickle"]
+
+[project.optional-dependencies]
+# the backends + corpus + exec-local exercise resume on a realistic HEP analysis end-to-end.
+dev = [
+  "pytest",
+  "pytest-cov",
+  "hypothesis",
+  "mypy",
+  "ruff",
+  "numpy>=1.24",
+  "graphed",
+  "graphed-debug",
+  "graphed-numpy",
+  "graphed-awkward",
+  "graphed-corpus",
+  "awkward>=2.6",
+]
+docs = ["sphinx", "furo"]
+
+[project.urls]
+Homepage = "https://github.com/graphed-org/graphed-checkpoint"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/graphed_checkpoint"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests/frozen/m8"]
+addopts = "-q"
+
+[tool.coverage.run]
+branch = true
+source = ["graphed_checkpoint"]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+
+[tool.ruff]
+line-length = 110
+src = ["src", "tests"]
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "C4", "RUF", "PLC0415"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src"]
+
+[[tool.mypy.overrides]]
+module = ["numpy.*", "cloudpickle.*", "graphed_awkward.*", "graphed_numpy.*", "graphed_corpus.*"]
+ignore_missing_imports = true
+follow_imports = "skip"
