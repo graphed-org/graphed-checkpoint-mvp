@@ -32,7 +32,7 @@
           "wall_clock_s": 0.0
         }
       ],
-      "phase": "REVIEW",
+      "phase": "DONE",
       "reject_count": 0
     },
     "M8": {
@@ -67,11 +67,11 @@
           "wall_clock_s": 0.0
         }
       ],
-      "phase": "REVIEW",
+      "phase": "DONE",
       "reject_count": 0
     }
   },
   "repo": "graphed-checkpoint",
   "schema_version": 1,
-  "updated_at": "2026-06-05T22:53:28Z"
+  "updated_at": "2026-06-05T22:57:31Z"
 }
