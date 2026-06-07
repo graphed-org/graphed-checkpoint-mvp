@@ -1,7 +1,7 @@
 # graphed-checkpoint
 
 Content-addressed checkpoint store, deterministic resume, and error harvesting for
-[`graphed`](https://github.com/graphed-org/graphed-project) — **milestone M8** (the durable half;
+[`graphed`](https://github.com/graphed-org/graphed-project-mvp) — **milestone M8** (the durable half;
 the serializable `DurablePlan` + content-addressed `task_id` live in `graphed-core`).
 
 - **Crash-safe `Store`** — content-addressed blobs (atomic temp+fsync+rename), an append-only

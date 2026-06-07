@@ -39,7 +39,7 @@ dev = [
 docs = ["sphinx", "furo"]
 
 [project.urls]
-Homepage = "https://github.com/graphed-org/graphed-checkpoint"
+Homepage = "https://github.com/graphed-org/graphed-checkpoint-mvp"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/graphed_checkpoint"]
