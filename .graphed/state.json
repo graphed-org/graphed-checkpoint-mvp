@@ -38,7 +38,7 @@
     "M8": {
       "dispute_count": 0,
       "escalated": false,
-      "freeze_tag": "freeze-M8-0",
+      "freeze_tag": "freeze-M8-1",
       "gates": {
         "benchmark": null,
         "coverage": true,
@@ -73,5 +73,5 @@
   },
   "repo": "graphed-checkpoint",
   "schema_version": 1,
-  "updated_at": "2026-06-05T22:57:31Z"
+  "updated_at": "2026-06-10T22:20:12Z"
 }
